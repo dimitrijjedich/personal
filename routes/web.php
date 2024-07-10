@@ -31,22 +31,22 @@ Route::get('contact/{id}', function ($id) {
 
 Route::get('home', function () {
     return '
-    <a href="'.route('about').'">About</a>
-    <a href="'.route('contact').'">Contact</a>
-    <a href="'.route('contact-named', ['id' => 123]).'">Contact Named</a>
+    <a href="' . route('about') . '">About</a>
+    <a href="' . route('contact') . '">Contact</a>
+    <a href="' . route('contact-named', ['id' => 123]) . '">Contact Named</a>
     ';
 });
 
 Route::group(['prefix' => 'customer'], function () {
-    Route::get('/', function() {
+    Route::get('/', function () {
         return '<h1>Customer List</h1>';
     });
 
-    Route::get('/create', function() {
+    Route::get('/create', function () {
         return '<h1>Customer Created</h1>';
     });
 
-    Route::get('/edit/{id}', function($id) {
-        return '<h1>Customer '.$id.' edited</h1>';
+    Route::get('/edit/{id}', function ($id) {
+        return '<h1>Customer ' . $id . ' edited</h1>';
     });
 });

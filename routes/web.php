@@ -36,3 +36,17 @@ Route::get('home', function () {
     <a href="'.route('contact-named', ['id' => 123]).'">Contact Named</a>
     ';
 });
+
+Route::group(['prefix' => 'customer'], function () {
+    Route::get('/', function() {
+        return '<h1>Customer List</h1>';
+    });
+
+    Route::get('/create', function() {
+        return '<h1>Customer Created</h1>';
+    });
+
+    Route::get('/edit/{id}', function($id) {
+        return '<h1>Customer '.$id.' edited</h1>';
+    });
+});

@@ -18,11 +18,11 @@ Route::get('/', function () {
 });
 
 Route::get('about', function () {
-    return '<h1>About Page</h1>';
+    return view('about');
 })->name('about');
 
 Route::get('contact', function () {
-    return '<h1>Contact Page</h1>';
+    return view('contact');
 })->name('contact');
 
 Route::get('contact/{id}', function ($id) {

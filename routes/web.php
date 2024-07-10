@@ -50,3 +50,7 @@ Route::group(['prefix' => 'customer'], function () {
         return '<h1>Customer ' . $id . ' edited</h1>';
     });
 });
+
+Route::fallback(function () {
+    return '<h1>404 Not Found</h1>';
+});

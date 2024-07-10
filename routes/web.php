@@ -26,7 +26,7 @@ Route::get('contact', function () {
 })->name('contact');
 
 Route::get('contact/{id}', function ($id) {
-    return $id;
+    return view('contact-named', ['id' => $id]);
 })->name('contact-named');
 
 Route::get('home', function () {

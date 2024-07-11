@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,11 +31,7 @@ Route::get('contact/{id}', function ($id) {
 })->name('contact-named');
 
 Route::get('home', function () {
-    return '
-    <a href="' . route('about') . '">About</a>
-    <a href="' . route('contact') . '">Contact</a>
-    <a href="' . route('contact-named', ['id' => 123]) . '">Contact Named</a>
-    ';
+    return view('home', ['users' => User::all()]);
 });
 
 Route::group(['prefix' => 'customer'], function () {

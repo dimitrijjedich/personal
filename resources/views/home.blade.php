@@ -15,4 +15,7 @@
             </div>
         @endforeach
     </div>
+    @php
+        echo "Hello from PHP generated code!";
+    @endphp
 @endsection

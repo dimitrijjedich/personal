@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,9 +30,7 @@ Route::get('contact/{id}', function ($id) {
     return view('contact-named', ['id' => $id]);
 })->name('contact-named');
 
-Route::get('home', function () {
-    return view('home', ['users' => User::all()]);
-});
+Route::get('home', [HomeController::class, 'index']);
 
 Route::group(['prefix' => 'customer'], function () {
     Route::get('/', function () {

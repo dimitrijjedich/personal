@@ -12,6 +12,6 @@
 <main role="main" class="container">
 @yield('content')
 </main>
-@include('layouts.header')
+@include('layouts.footer')
 </body>
 </html>

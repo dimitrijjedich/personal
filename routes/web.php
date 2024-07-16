@@ -30,7 +30,7 @@ Route::get('contact/{id}', function ($id) {
     return view('contact-named', ['id' => $id]);
 })->name('contact-named');
 
-Route::get('home', [HomeController::class, 'index']);
+Route::get('home', HomeController::class);
 
 Route::group(['prefix' => 'customer'], function () {
     Route::get('/', function () {

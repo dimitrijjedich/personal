@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +32,8 @@ Route::get('contact/{id}', function ($id) {
 })->name('contact-named');
 
 Route::get('home', HomeController::class);
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 Route::group(['prefix' => 'customer'], function () {
     Route::get('/', function () {

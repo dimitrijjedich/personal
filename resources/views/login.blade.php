@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-body">
                     <form action="{{ route('login.submit') }}" method="POST">
+                        @csrf
                         <div class="mb-2">
                             <label for="" class="form-label">User Name</label>
                             <input name="name" type="text" class="form-control">

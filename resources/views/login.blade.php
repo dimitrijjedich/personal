@@ -8,16 +8,16 @@
                 <div class="card-body">
                     <form action="">
                         <div class="mb-2">
-                            <label for="" class=""form-label">User Name</label>
-                            <input type="text" class="form-control">
+                            <label for="" class="form-label">User Name</label>
+                            <input name="name" type="text" class="form-control">
                         </div>
                         <div class="mb-2">
-                            <label for="" class=""form-label">User Email</label>
-                            <input type="email" class="form-control">
+                            <label for="" class="form-label">User Email</label>
+                            <input name="email" type="email" class="form-control">
                         </div>
                         <div class="mb-2">
-                            <label for="" class=""form-label">Password</label>
-                            <input type="email" class="form-control">
+                            <label for="" class="form-label">Password</label>
+                            <input name="password" type="text" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>

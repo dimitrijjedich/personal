@@ -6,7 +6,7 @@
             <h2 class="mb-4">Login</h2>
             <div class="card">
                 <div class="card-body">
-                    <form action="">
+                    <form action="{{ route('login.submit') }}" method="POST">
                         <div class="mb-2">
                             <label for="" class="form-label">User Name</label>
                             <input name="name" type="text" class="form-control">

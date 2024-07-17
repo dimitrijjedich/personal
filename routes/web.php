@@ -35,6 +35,8 @@ Route::get('home', HomeController::class);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
+Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
+
 Route::group(['prefix' => 'customer'], function () {
     Route::get('/', function () {
         return '<h1>Customer List</h1>';

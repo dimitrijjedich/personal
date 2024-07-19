@@ -28,4 +28,13 @@ class LoginRequest extends FormRequest
             'password' => 'required',
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Der Username darf nicht leer sein.',
+            'name.alpha' => 'Der Username darf nur aus Buchstaben bestehen.',
+            'email.required' => 'Der Email darf nicht leer sein.',
+        ];
+    }
 }

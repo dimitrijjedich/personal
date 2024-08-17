@@ -15,5 +15,7 @@ class FileUploadController extends Controller
             'image' => ['required', 'min:100', 'max:1000', 'mimes:png,jpg'],
         ]);
         info($request->image->store('/images'));
+        //other option: redirect('/upload');
+        return redirect()->back();
     }
 }

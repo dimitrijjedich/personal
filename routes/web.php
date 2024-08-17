@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,12 @@ Route::get('contact/{id}', function ($id) {
 })->name('contact-named');
 
 Route::get('home', HomeController::class);
+
+Route::get('upload', function () {
+    return view('fileupload');
+});
+
+Route::post('upload', FileUploadController::class)->name('upload-file');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 

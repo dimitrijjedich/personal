@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create([
+        $users = User::factory(10)->create([
             'email_verified_at' => random_int(0, 1) ? now() : null,
         ]);
 
@@ -29,5 +30,8 @@ class DatabaseSeeder extends Seeder
             'publish_date' => date('Y-m-d'),
             'user_id' => 1,
         ]);
+        foreach ($users as $user) {
+            Post::factory(rand(10,30))->create(['user_id' => $user->id]);
+        }
     }
 }

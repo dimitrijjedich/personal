@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
     <main role="main" class="container">
+        <img src="{{asset('/storage/images/new_image')}}" width="128px" height="128px" alt="example">
         <div class="col-md-4 mt-5">
             <div class="card">
                 <div class="card-body">

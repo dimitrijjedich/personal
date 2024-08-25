@@ -4,6 +4,7 @@ use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,6 +61,8 @@ Route::group(['prefix' => 'customer'], function () {
         return '<h1>Customer ' . $id . ' edited</h1>';
     });
 });
+
+Route::resource('posts', PostController::class);
 
 Route::fallback(function () {
     return '<h1>404 Not Found</h1>';

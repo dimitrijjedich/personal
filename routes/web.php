@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -41,6 +42,8 @@ Route::get('upload', function () {
 Route::post('upload', FileUploadController::class)->name('upload-file');
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+Route::get('/download', ImageController::class)->name('download');
 
 Route::post('/login', [LoginController::class, 'handleLogin'])->name('login.submit');
 

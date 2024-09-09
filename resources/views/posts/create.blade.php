@@ -17,15 +17,15 @@
                 <form action="">
                     <div class="form-group">
                         <label for="" class="form-label">Image</label>
-                        <input type="file" class="form-control">
+                        <input type="file" class="form-control" name="image">
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Title</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="title">
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Category</label>
-                        <select name="" id="" class="form-control">
+                        <select id="" class="form-control" name="category_id">
                             <option value="">test1</option>
                             <option value="">test2</option>
                             <option value="">test3</option>
@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Description</label>
-                        <textarea name="" id="" clos="30" rows="10" class="form-control"></textarea>
+                        <textarea id="" clos="30" rows="10" class="form-control" name="description"></textarea>
                     </div>
 
                     <div class="form-group mt-3">

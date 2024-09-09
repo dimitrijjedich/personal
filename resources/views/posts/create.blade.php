@@ -6,7 +6,7 @@
             <div class="card-header">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4>Create Posts</h4>
+                        <h4>Create Post</h4>
                     </div>
                     <div class="col-md-6 d-flex justify-content-end">
                         <a class="btn btn-success mx-1" href="{{route('posts.index')}}">Back</a>

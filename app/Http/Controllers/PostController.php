@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -29,7 +30,22 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => ['required','max:2048', 'image'],
+            'title' => ['required', 'string', 'max:255'],
+            'category_id' => ['required', 'integer'],
+            'description' => ['required'],
+        ]);
+        $filename = time() . '_' . $request->image->getClientOriginalName();
+        $filepath = $request->image->storeAs('uploads', $filename, 'public');
+        $post = new Post();
+        $post->title = $request->title;
+        $post->category_id = $request->category_id;
+        $post->description = $request->description;
+        $post->image = $filepath;
+        $post->save();
+
+        return redirect()->route('posts.index');
     }
 
     /**

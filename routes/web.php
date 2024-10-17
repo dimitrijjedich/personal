@@ -62,6 +62,7 @@ Route::group(['prefix' => 'customer'], function () {
     });
 });
 
+Route::get('posts/trashed', [PostController::class, 'trashed'])->name('posts.trashed');
 Route::resource('posts', PostController::class);
 
 Route::fallback(function () {

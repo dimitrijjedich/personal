@@ -102,4 +102,14 @@ class PostController extends Controller
         Post::findOrFail($id)->delete();
         return redirect()->route('posts.index');
     }
+
+    /**
+     * Display a listing of the resource which where soft deleted.
+     */
+    public function trashed()
+    {
+        info("Hi from the tash");
+        $posts = Post::onlyTrashed()->get();
+        return view('posts.trashed', compact('posts'));
+    }
 }

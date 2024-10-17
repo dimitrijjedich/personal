@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = User::factory(10)->create([
+        User::factory(10)->create([
             'email_verified_at' => random_int(0, 1) ? now() : null,
         ]);
 
@@ -23,8 +24,15 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
-        foreach ($users as $user) {
-            Post::factory(rand(10,30))->create(['user_id' => $user->id]);
+        Category::factory(5)->create();
+
+        foreach (Category::all() as $category) {
+            $filename = microtime() . '_' . 'water.png';
+            $filepath = Storage::copy('uploads/water.png', 'uploads/' . $filename);
+            Post::factory(rand(5, 10))->create([
+                'image'=>$filepath,
+                'category_id'=>$category->id,
+            ]);
         }
     }
 }

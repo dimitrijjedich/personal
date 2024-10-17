@@ -20,9 +20,6 @@ class PostFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
-            'status' => $this->faker->randomElement([true, false]),
-            'publish_date' => $this->faker->date(),
-            'views' => rand(0,1000),
         ];
     }
 }

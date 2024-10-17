@@ -22,18 +22,25 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td><img src="https://picsum.photos/200" alt="" width="80"></td>
-                        <td>Lorem Ipsum Text</td>
-                        <td>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores </td>
-                        <td>Fillertext</td>
-                        <td>2024-01-01</td>
-                        <td>
-                            <a class="btn-sm btn-primary" href="">Edit</a>
-                            <a class="btn-sm btn-danger" href="">Delete</a>
-                        </td>
-                    </tr>
+                    @foreach($posts as $post)
+                        <tr>
+                            <th scope="row">{{$post->id}}</th>
+                            <td><img src="{{asset('storage/'.$post->image)}}" alt="" width="80"></td>
+                            <td>{{$post->title}}</td>
+                            <td>{{$post->description}}</td>
+                            <td>{{$post->category->name}}</td>
+                            <td>{{$post->created_at->format('Y-m-d')}}</td>
+                            <td>
+                                <a class="btn-sm btn-success" href="{{route('posts.show', $post->id)}}">Show</a>
+                                <a class="btn-sm btn-primary" href="{{route('posts.edit', $post->id)}}">Edit</a>
+                                <form action="{{route('posts.destroy', $post->id)}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn-sm btn-danger" type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
